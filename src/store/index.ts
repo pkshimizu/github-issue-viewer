@@ -4,13 +4,15 @@ import {persistReducer, persistStore, FLUSH, PAUSE, PERSIST, PURGE, REGISTER, RE
 import {configureStore} from "@reduxjs/toolkit";
 import {createLogger} from "redux-logger";
 import {InitialSettingState, SettingSlice} from "../features/setting";
+import {InitialIssueState, IssueSlice} from "../features/issues/store";
 
 const rootReducer = combineReducers({
-  "setting": SettingSlice.reducer
+  "setting": SettingSlice.reducer,
+  "issue": IssueSlice.reducer
 })
 
 const preloadedState = () => ({
-  "setting": InitialSettingState
+  "issue": InitialIssueState
 })
 
 export type StoreState = ReturnType<typeof preloadedState>
