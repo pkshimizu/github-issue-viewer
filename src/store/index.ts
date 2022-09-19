@@ -12,6 +12,7 @@ const rootReducer = combineReducers({
 })
 
 const preloadedState = () => ({
+  "setting": InitialSettingState,
   "issue": InitialIssueState
 })
 
