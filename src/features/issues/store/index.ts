@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 type IssueState = {}
 
@@ -8,6 +8,5 @@ export const IssueSlice = createSlice({
   name: 'issue',
   initialState: InitialIssueState,
   reducers: {},
-  extraReducers: (builder) => {
-  },
+  extraReducers: (builder) => {},
 })

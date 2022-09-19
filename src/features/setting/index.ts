@@ -1,2 +1,2 @@
-export * from "./store"
-export * from "./routes/GitHubPrivateAccessTokenForm"
+export * from './store'
+export * from './routes/GitHubPrivateAccessTokenForm'

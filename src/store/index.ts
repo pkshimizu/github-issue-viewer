@@ -1,19 +1,28 @@
-import storage from "redux-persist/lib/storage";
-import {combineReducers} from "redux";
-import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from "redux-persist";
-import {configureStore} from "@reduxjs/toolkit";
-import {createLogger} from "redux-logger";
-import {InitialSettingState, SettingSlice} from "@/features/setting";
-import {InitialIssueState, IssueSlice} from "@/features/issues/store";
+import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers } from 'redux'
+import { createLogger } from 'redux-logger'
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import { InitialIssueState, IssueSlice } from '@/features/issues/store'
+import { InitialSettingState, SettingSlice } from '@/features/setting'
 
 const rootReducer = combineReducers({
-  "setting": SettingSlice.reducer,
-  "issue": IssueSlice.reducer
+  setting: SettingSlice.reducer,
+  issue: IssueSlice.reducer,
 })
 
 const preloadedState = () => ({
-  "setting": InitialSettingState,
-  "issue": InitialIssueState
+  setting: InitialSettingState,
+  issue: InitialIssueState,
 })
 
 export type StoreState = ReturnType<typeof preloadedState>
@@ -34,7 +43,7 @@ const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      thunk: {extraArgument: thunkExtra},
+      thunk: { extraArgument: thunkExtra },
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
@@ -42,7 +51,7 @@ const store = configureStore({
       createLogger({
         diff: true,
         collapsed: true,
-      })
+      }),
     ),
   devTools: process.env.NODE_ENV !== 'production',
   preloadedState: preloadedState(),

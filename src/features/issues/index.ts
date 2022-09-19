@@ -1,3 +1,3 @@
-export * from "./routes/IssueByLabelAggregationView"
-export * from "./routes/IssueByMilestoneAggregationView"
-export * from "./routes/IssueByProjectAggregationView"
+export * from './routes/IssueByLabelAggregationView'
+export * from './routes/IssueByMilestoneAggregationView'
+export * from './routes/IssueByProjectAggregationView'

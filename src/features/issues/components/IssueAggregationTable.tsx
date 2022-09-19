@@ -1,13 +1,24 @@
-import {Avatar, Badge, Progress, Table, TableContainer, Tbody, Td, Th, Thead, Tr} from "@chakra-ui/react";
-import Link from "next/link";
-import {IssueAggregation} from "@/features/issues/types";
+import {
+  Avatar,
+  Badge,
+  Progress,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+} from '@chakra-ui/react'
+import Link from 'next/link'
+import { IssueAggregation } from '@/features/issues/types'
 
 type IssueAggregationTable = {
   label: string
   aggregations: IssueAggregation[]
 }
 
-export function IssueAggregationTable({label, aggregations}: IssueAggregationTable) {
+export function IssueAggregationTable({ label, aggregations }: IssueAggregationTable) {
   return (
     <TableContainer>
       <Table>
@@ -21,27 +32,29 @@ export function IssueAggregationTable({label, aggregations}: IssueAggregationTab
           </Tr>
         </Thead>
         <Tbody>
-          {aggregations.map(aggregation => (
+          {aggregations.map((aggregation) => (
             <Tr key={aggregation.key}>
               <Td>
-                <Badge bgColor={"#d73a4a"} color={"white"}>{aggregation.title}</Badge>
+                <Badge bgColor={'#d73a4a'} color={'white'}>
+                  {aggregation.title}
+                </Badge>
               </Td>
               <Td>
-                {
-                  aggregation.users.map(user => (
-                    <Avatar key={user.name} src={user.icon} name={user.name}/>
-                  ))
-                }
+                {aggregation.users.map((user) => (
+                  <Avatar key={user.name} src={user.icon} name={user.name} />
+                ))}
               </Td>
               <Td>
-                <Link href={"/"}>{aggregation.openCount}</Link>
+                <Link href={'/'}>{aggregation.openCount}</Link>
               </Td>
               <Td>
-                <Link href={"/"}>{aggregation.openCount + aggregation.closeCount}</Link>
+                <Link href={'/'}>{aggregation.openCount + aggregation.closeCount}</Link>
               </Td>
               <Td>
-                <Progress value={aggregation.openCount / (aggregation.openCount + aggregation.closeCount)}
-                          width={"100%"}/>
+                <Progress
+                  value={aggregation.openCount / (aggregation.openCount + aggregation.closeCount)}
+                  width={'100%'}
+                />
               </Td>
             </Tr>
           ))}

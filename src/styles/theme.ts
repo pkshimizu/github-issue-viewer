@@ -1,4 +1,4 @@
-import {extendTheme} from "@chakra-ui/react";
+import { extendTheme } from '@chakra-ui/react'
 
 const colors = {
   brand: {
@@ -8,4 +8,4 @@ const colors = {
   },
 }
 
-const theme = extendTheme({colors})
+const theme = extendTheme({ colors })
