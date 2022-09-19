@@ -29,7 +29,7 @@ export function IssueAggregationTable({label, aggregations}: IssueAggregationTab
               <Td>
                 {
                   aggregation.users.map(user => (
-                    <Avatar src={user.icon} name={user.name}/>
+                    <Avatar key={user.name} src={user.icon} name={user.name}/>
                   ))
                 }
               </Td>
