@@ -1,10 +1,10 @@
 import storage from "redux-persist/lib/storage";
 import {combineReducers} from "redux";
-import {persistReducer, persistStore, FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from "redux-persist";
+import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from "redux-persist";
 import {configureStore} from "@reduxjs/toolkit";
 import {createLogger} from "redux-logger";
-import {InitialSettingState, SettingSlice} from "../features/setting";
-import {InitialIssueState, IssueSlice} from "../features/issues/store";
+import {InitialSettingState, SettingSlice} from "@/features/setting";
+import {InitialIssueState, IssueSlice} from "@/features/issues/store";
 
 const rootReducer = combineReducers({
   "setting": SettingSlice.reducer,
@@ -26,17 +26,15 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-export type ThunkExtra = {
-}
+export type ThunkExtra = {}
 
-const thunkExtra: ThunkExtra = {
-}
+const thunkExtra: ThunkExtra = {}
 
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      thunk: { extraArgument: thunkExtra },
+      thunk: {extraArgument: thunkExtra},
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },

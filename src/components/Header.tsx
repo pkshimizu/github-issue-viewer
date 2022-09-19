@@ -7,7 +7,7 @@ export default function Header() {
     <Flex align={"center"} justify={"space-between"}>
       <Link href={"/"}>
         <Flex direction={"row"} align={"center"} gap={1}>
-          <GoMarkGithub size={"48px"} />
+          <GoMarkGithub size={"48px"}/>
           <Heading>Issues</Heading>
         </Flex>
       </Link>

@@ -1,13 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {createSelector} from "reselect";
-import {StoreState} from "../../../store";
+import {StoreState} from "@/store";
 
 type SettingState = {
   gitHubPrivateAccessToken?: string
 }
 
-export const InitialSettingState: SettingState = {
-}
+export const InitialSettingState: SettingState = {}
 
 const settingState = (state: StoreState) => state.setting
 export const SettingSelectors = {

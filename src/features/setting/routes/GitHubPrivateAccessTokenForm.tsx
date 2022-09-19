@@ -1,7 +1,7 @@
 import {Button, Flex, Input, Text} from "@chakra-ui/react";
 import {ChangeEvent, useCallback, useState} from "react";
-import {useAppDispatch} from "../../../hooks/useStore";
-import {SettingSelectors, SettingSlice} from "../store";
+import {useAppDispatch} from "@/hooks/useStore";
+import {SettingSelectors, SettingSlice} from "@/features/setting";
 import {useSelector} from "react-redux";
 
 export function GitHubPrivateAccessTokenForm() {

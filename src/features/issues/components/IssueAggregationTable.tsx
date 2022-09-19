@@ -1,6 +1,6 @@
-import {Avatar, Badge, Flex, Progress, Table, TableContainer, Tbody, Td, Th, Thead, Tr} from "@chakra-ui/react";
+import {Avatar, Badge, Progress, Table, TableContainer, Tbody, Td, Th, Thead, Tr} from "@chakra-ui/react";
 import Link from "next/link";
-import {IssueAggregation} from "../types";
+import {IssueAggregation} from "@/features/issues/types";
 
 type IssueAggregationTable = {
   label: string
@@ -40,7 +40,8 @@ export function IssueAggregationTable({label, aggregations}: IssueAggregationTab
                 <Link href={"/"}>{aggregation.openCount + aggregation.closeCount}</Link>
               </Td>
               <Td>
-                <Progress value={aggregation.openCount / (aggregation.openCount + aggregation.closeCount)} width={"100%"} />
+                <Progress value={aggregation.openCount / (aggregation.openCount + aggregation.closeCount)}
+                          width={"100%"}/>
               </Td>
             </Tr>
           ))}

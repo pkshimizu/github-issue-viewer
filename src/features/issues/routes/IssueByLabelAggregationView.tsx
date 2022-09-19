@@ -1,20 +1,6 @@
-import {
-  Avatar,
-  Badge,
-  Flex,
-  Heading,
-  Progress,
-  Table,
-  TableContainer,
-  Text,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr
-} from "@chakra-ui/react";
+import {Flex, Heading, Text} from "@chakra-ui/react";
 import Link from "next/link";
-import {IssueAggregationTable} from "../components/IssueAggregationTable";
+import {IssueAggregationTable} from "@/features/issues/components/IssueAggregationTable";
 
 export function IssueByLabelAggregationView() {
   return (

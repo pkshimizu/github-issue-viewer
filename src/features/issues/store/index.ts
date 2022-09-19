@@ -1,16 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-type IssueState = {
-}
+type IssueState = {}
 
-export const InitialIssueState: IssueState = {
-}
+export const InitialIssueState: IssueState = {}
 
 export const IssueSlice = createSlice({
   name: 'issue',
   initialState: InitialIssueState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
   },
 })
