@@ -11,6 +11,7 @@ import {
   Tr,
 } from '@chakra-ui/react'
 import Link from 'next/link'
+
 import { IssueAggregation } from '@/features/issues/types'
 
 type IssueAggregationTable = {

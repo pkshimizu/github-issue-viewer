@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice , PayloadAction } from '@reduxjs/toolkit'
 import { createSelector } from 'reselect'
+
 import { StoreState } from '@/store'
 
 type SettingState = {

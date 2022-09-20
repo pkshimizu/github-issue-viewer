@@ -1,11 +1,11 @@
 import { Button, Flex, Input, Text } from '@chakra-ui/react'
 import { ChangeEvent, useCallback, useState } from 'react'
-import { useSelector } from 'react-redux'
+
 import { SettingSelectors, SettingSlice } from '@/features/setting'
-import { useAppDispatch } from '@/hooks/useStore'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 
 export function GitHubPrivateAccessTokenForm() {
-  const gitHubPrivateAccessToken = useSelector(SettingSelectors.gitHubPrivateAccessToken)
+  const gitHubPrivateAccessToken = useAppSelector(SettingSelectors.gitHubPrivateAccessToken)
   const [value, setValue] = useState<string | undefined>(gitHubPrivateAccessToken)
   const dispatch = useAppDispatch()
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {

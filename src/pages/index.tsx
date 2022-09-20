@@ -1,11 +1,13 @@
 import { Container, Flex } from '@chakra-ui/react'
-import type { NextPage } from 'next'
+
 import Header from '@/components/Header'
 import {
   IssueByLabelAggregationView,
   IssueByMilestoneAggregationView,
   IssueByProjectAggregationView,
 } from '@/features/issues'
+
+import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
   return (

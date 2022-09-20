@@ -12,6 +12,7 @@ import {
   REHYDRATE,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+
 import { InitialIssueState, IssueSlice } from '@/features/issues/store'
 import { InitialSettingState, SettingSlice } from '@/features/setting'
 

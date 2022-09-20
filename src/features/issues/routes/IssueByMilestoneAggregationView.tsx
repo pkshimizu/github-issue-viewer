@@ -1,5 +1,6 @@
 import { Flex, Heading, Text } from '@chakra-ui/react'
 import Link from 'next/link'
+
 import { IssueAggregationTable } from '@/features/issues/components/IssueAggregationTable'
 
 export function IssueByMilestoneAggregationView() {
