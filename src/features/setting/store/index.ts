@@ -1,7 +1,9 @@
-import { createSlice , PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import { createSelector } from 'reselect'
 
 import { StoreState } from '@/store'
+
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 type SettingState = {
   gitHubPrivateAccessToken?: string
