@@ -15,15 +15,22 @@
     "@chakra-ui/react": "^2.3.4",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@reduxjs/toolkit": "^1.8.5",
     "framer-motion": "^7.3.6",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "18.7.19",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
+    "@types/react-redux": "^7.1.24",
+    "@types/redux-logger": "^3.0.9",
+    "@types/redux-persist": "^4.3.1",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
     "eslint": "^8.24.0",
