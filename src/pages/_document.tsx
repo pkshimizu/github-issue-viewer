@@ -9,9 +9,7 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang='en'>
-        <Head>
-          <title>GitHub Issue Viewer</title>
-        </Head>
+        <Head />
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
