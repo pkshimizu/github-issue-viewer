@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
-const Top: NextPage = () => {
+const View: NextPage = () => {
   return <></>
 }
 
-export default Top
+export default View
