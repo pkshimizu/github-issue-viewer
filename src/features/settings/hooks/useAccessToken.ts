@@ -1,15 +1,16 @@
 import { useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { Selectors } from '@/features/settings/selectors'
-import { Slice } from '@/features/settings/store'
+import { Actions, Slice } from '@/features/settings/store'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 
 export default function useAccessToken() {
-  const dispatch = useDispatch()
-  const value = useSelector(Selectors.accessToken)
+  const dispatch = useAppDispatch()
+  const value = useAppSelector(Selectors.accessToken)
   const save = useCallback(
-    (accessToken: string) => {
-      dispatch(Slice.actions.saveAccessToken({ accessToken }))
+    async (accessToken: string) => {
+      await dispatch(Slice.actions.saveAccessToken({ accessToken }))
+      await dispatch(Actions.authenticate(accessToken))
     },
     [dispatch],
   )
