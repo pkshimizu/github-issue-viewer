@@ -1,10 +1,14 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 type State = {
   accessToken?: string
 }
 
 export const InitialState: State = {}
+
+export const Actions = {}
 
 export const Slice = createSlice({
   name: 'setting',

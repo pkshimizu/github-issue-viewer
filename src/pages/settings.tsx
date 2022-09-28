@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react'
 
-import AccessTokenForm from '@/features/setting/components/AccessTokenForm'
+import AccessTokenForm from '@/features/settings/components/AccessTokenForm'
 
 import type { NextPage } from 'next'
 
