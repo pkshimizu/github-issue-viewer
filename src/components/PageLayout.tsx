@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react'
+import { Container, Flex } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 
 import Header from '@/components/Header'
@@ -11,7 +11,9 @@ export default function PageLayout({ children }: PageLayoutProps) {
   return (
     <Container p={2} maxW={'container.lg'}>
       <Header />
-      {children}
+      <Flex direction={'column'} py={2}>
+        {children}
+      </Flex>
     </Container>
   )
 }
