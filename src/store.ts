@@ -13,14 +13,17 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import { InitialState, Slice } from '@/features/settings/store'
+import { InitialSettingsState, SettingsSlice } from '@/features/settings/store'
+import { InitialViewState, ViewSlice } from '@/features/view/store'
 
 const rootReducer = combineReducers({
-  settings: Slice.reducer,
+  settings: SettingsSlice.reducer,
+  view: ViewSlice.reducer,
 })
 
 const preloadedState = () => ({
-  settings: InitialState,
+  settings: InitialSettingsState,
+  view: InitialViewState,
 })
 
 export type StoreState = ReturnType<typeof preloadedState>

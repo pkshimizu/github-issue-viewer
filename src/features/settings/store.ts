@@ -5,35 +5,35 @@ import { getAuthentication } from '@/features/settings/apis'
 import type { Authentication } from '@/features/settings/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-type State = {
+type SettingsState = {
   accessToken?: string
   authentication?: Authentication | null
 }
 
-export const InitialState: State = {}
+export const InitialSettingsState: SettingsState = {}
 
-export const Actions = {
-  authenticate: createAsyncThunk('systems/authenticate', async (accessToken: string) => {
+export const SettingsActions = {
+  authenticate: createAsyncThunk('settings/authenticate', async (accessToken: string) => {
     return await getAuthentication(accessToken)
   }),
 }
 
-export const Slice = createSlice({
+export const SettingsSlice = createSlice({
   name: 'setting',
-  initialState: InitialState,
+  initialState: InitialSettingsState,
   reducers: {
-    saveAccessToken: (state: State, action: PayloadAction<{ accessToken: string }>) => {
+    saveAccessToken: (state: SettingsState, action: PayloadAction<{ accessToken: string }>) => {
       state.accessToken = action.payload.accessToken
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(Actions.authenticate.pending, (state) => {
+    builder.addCase(SettingsActions.authenticate.pending, (state) => {
       state.authentication = undefined
     })
-    builder.addCase(Actions.authenticate.fulfilled, (state, action) => {
+    builder.addCase(SettingsActions.authenticate.fulfilled, (state, action) => {
       state.authentication = action.payload
     })
-    builder.addCase(Actions.authenticate.rejected, (state) => {
+    builder.addCase(SettingsActions.authenticate.rejected, (state) => {
       state.authentication = null
     })
   },

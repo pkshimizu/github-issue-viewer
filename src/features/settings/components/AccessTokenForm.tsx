@@ -25,7 +25,7 @@ export default function AccessTokenForm() {
   )
   const handleSave = useCallback(() => {
     if (accessToken) {
-      save(accessToken)
+      void save(accessToken)
     }
   }, [accessToken, save])
   return (
