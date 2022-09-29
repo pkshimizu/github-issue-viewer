@@ -6,4 +6,12 @@ export const theme = extendTheme({
     800: '#153e75',
     700: '#2a69ac',
   },
+  colors: {
+    primary: {
+      light: '#747474',
+      main: '#2A2A2A',
+      dark: '#0A0A0A',
+      text: '#FFFFFF',
+    },
+  },
 })
