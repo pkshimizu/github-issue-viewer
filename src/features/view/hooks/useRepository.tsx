@@ -23,5 +23,6 @@ export default function useRepository() {
   return {
     load,
     organizations,
+    repositories
   }
 }
