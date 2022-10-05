@@ -13,17 +13,23 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
+import { InitialRepositoryState, RepositorySlice } from '@/features/repository/store'
 import { InitialSettingsState, SettingsSlice } from '@/features/settings/store'
 import { InitialViewState, ViewSlice } from '@/features/view/store'
+import {InitialIssueState, IssueSlice} from "@/features/issue/store";
 
 const rootReducer = combineReducers({
   settings: SettingsSlice.reducer,
   view: ViewSlice.reducer,
+  repository: RepositorySlice.reducer,
+  issue: IssueSlice.reducer
 })
 
 const preloadedState = () => ({
   settings: InitialSettingsState,
   view: InitialViewState,
+  repository: InitialRepositoryState,
+  issue: InitialIssueState
 })
 
 export type StoreState = ReturnType<typeof preloadedState>
@@ -31,7 +37,7 @@ export type StoreState = ReturnType<typeof preloadedState>
 const persistConfig = {
   key: 'github-issue-view',
   storage,
-  whitelist: ['settings'],
+  whitelist: ['settings', 'view'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

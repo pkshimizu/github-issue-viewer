@@ -1,21 +1,21 @@
 import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
+import { RepositorySelectors } from '@/features/repository/selectors'
+import { RepositoryActions } from '@/features/repository/store'
 import { SettingsSelectors } from '@/features/settings/selectors'
-import { ViewSelectors } from '@/features/view/selectors'
-import { ViewActions } from '@/features/view/store'
 import { useAppDispatch } from '@/hooks/useStore'
 
 export default function useRepository() {
   const accessToken = useSelector(SettingsSelectors.accessToken)
   const dispatch = useAppDispatch()
-  const organizations = useSelector(ViewSelectors.organizations)
-  const repositories = useSelector(ViewSelectors.repositories)
+  const organizations = useSelector(RepositorySelectors.organizations)
+  const repositories = useSelector(RepositorySelectors.repositories)
   const load = useCallback(() => {
     if (accessToken) {
-      dispatch(ViewActions.loadRepositories(accessToken))
+      dispatch(RepositoryActions.loadRepositories(accessToken))
     }
-  }, [accessToken])
+  }, [dispatch, accessToken])
   useEffect(() => {
     load()
   }, [load])
@@ -23,6 +23,6 @@ export default function useRepository() {
   return {
     load,
     organizations,
-    repositories
+    repositories,
   }
 }

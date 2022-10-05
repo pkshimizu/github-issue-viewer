@@ -1,7 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react'
 
-import useRepository from '@/features/view/hooks/useRepository'
-
+import useRepository from '@/features/repository/hooks/useRepository'
 
 export default function ViewForm() {
   const { organizations } = useRepository()
