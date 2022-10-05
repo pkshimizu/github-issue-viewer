@@ -5,7 +5,7 @@ type IssueState = {}
 export const InitialIssueState: IssueState = {}
 
 export const IssueSlice = createSlice({
-  name: '',
+  name: 'issue',
   initialState: InitialIssueState,
   reducers: {},
 })
