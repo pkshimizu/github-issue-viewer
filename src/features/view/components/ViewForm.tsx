@@ -1,14 +1,15 @@
 import { Flex, Text } from '@chakra-ui/react'
 
-import useRepository from '@/features/repository/hooks/useRepository'
+import OrganizationSelectField from '@/features/repository/components/OrganizationSelectField'
+import RepositorySelectField from '@/features/repository/components/RepositorySelectField'
 
 export default function ViewForm() {
-  const { organizations } = useRepository()
   return (
     <Flex direction={'column'}>
-      {organizations.map((organization) => (
-        <Text key={organization.name}>{organization.name}</Text>
-      ))}
+      <Text size={'sm'}>対象Organization</Text>
+      <OrganizationSelectField />
+      <Text size={'sm'}>対象Repository</Text>
+      <RepositorySelectField />
     </Flex>
   )
 }
