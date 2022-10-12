@@ -8,34 +8,38 @@ import {
   InputGroup,
   InputRightAddon,
 } from '@chakra-ui/react'
-import { ChangeEvent, useCallback, useState } from 'react'
+import { useCallback } from 'react'
+import { useForm } from 'react-hook-form'
 
 import useAccessToken from '@/features/settings/hooks/useAccessToken'
 import useAuthentication from '@/features/settings/hooks/useAuthentication'
 
+type AccessTokenFormParams = {
+  accessToken: string
+}
+
 export default function AccessTokenForm() {
   const { value, save } = useAccessToken()
   const { value: authentication } = useAuthentication()
-  const [accessToken, setAccessToken] = useState<string | undefined>(value)
-  const handleChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      setAccessToken(event.target.value)
+  const { handleSubmit, register } = useForm<AccessTokenFormParams>({
+    defaultValues: { accessToken: value },
+  })
+  const handleSave = useCallback(
+    (params: AccessTokenFormParams) => {
+      void save(params.accessToken)
     },
-    [setAccessToken],
+    [save],
   )
-  const handleSave = useCallback(() => {
-    if (accessToken) {
-      void save(accessToken)
-    }
-  }, [accessToken, save])
   return (
     <Flex direction={'column'} gap={1}>
-      <InputGroup>
-        <Input value={accessToken} onChange={handleChange} />
-        <InputRightAddon>
-          <Button onClick={handleSave}>保存</Button>
-        </InputRightAddon>
-      </InputGroup>
+      <form onSubmit={handleSubmit(handleSave)}>
+        <InputGroup>
+          <Input {...register('accessToken')} />
+          <InputRightAddon>
+            <Button type={'submit'}>保存</Button>
+          </InputRightAddon>
+        </InputGroup>
+      </form>
       {authentication !== undefined && (
         <Alert status={authentication === null ? 'error' : 'success'}>
           <AlertIcon />
