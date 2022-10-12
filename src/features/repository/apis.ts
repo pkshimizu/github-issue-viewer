@@ -1,6 +1,6 @@
 import { Octokit } from 'octokit'
 
-import { Repository } from '@/features/view/types'
+import { Repository } from '@/features/repository/types'
 
 export async function getRepositories(accessToken: string): Promise<Repository[]> {
   const octokit = new Octokit({ auth: accessToken })

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import { Organization } from '@/features/view/types'
+import { Organization } from '@/features/repository/types'
 import { StoreState } from '@/store'
 
 const repository = (state: StoreState) => state.repository
