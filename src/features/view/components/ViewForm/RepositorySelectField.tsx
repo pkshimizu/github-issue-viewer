@@ -14,7 +14,7 @@ export default function RepositorySelectField({}: RepositorySelectFieldProps) {
   const [filteredRepositories, setFilteredRepositories] = useState<Repository[]>([])
   useEffect(() => {
     setFilteredRepositories(repositories)
-    const subscription = watch((value, { name, type }) => {
+    const subscription = watch((value, { name }) => {
       if (name === 'organizationName') {
         setFilteredRepositories(
           repositories.filter(
