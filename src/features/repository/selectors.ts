@@ -15,4 +15,5 @@ export const RepositorySelectors = {
     }, []),
   ),
   repositories: createSelector([repository], (state) => state.repositories),
+  labels: createSelector([repository], (state) => state.labels),
 }

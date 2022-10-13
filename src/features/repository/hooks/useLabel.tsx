@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 
+import { RepositorySelectors } from '@/features/repository/selectors'
 import { RepositoryActions } from '@/features/repository/store'
 import { SettingsSelectors } from '@/features/settings/selectors'
 import { useAppDispatch } from '@/hooks/useStore'
@@ -22,8 +23,10 @@ export default function useLabel() {
     },
     [dispatch, accessToken],
   )
+  const labels = useSelector(RepositorySelectors.labels)
 
   return {
     load,
+    labels,
   }
 }
