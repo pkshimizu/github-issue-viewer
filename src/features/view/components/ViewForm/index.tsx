@@ -12,7 +12,7 @@ export type ViewFormParams = {
   repositoryName: string
 }
 
-export default function Index() {
+export default function ViewForm() {
   const methods = useForm<ViewFormParams>()
   const dispatch = useAppDispatch()
   const handleSave = useCallback(

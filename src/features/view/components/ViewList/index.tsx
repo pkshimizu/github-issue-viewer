@@ -1,6 +1,6 @@
 import { Box, Flex, Heading } from '@chakra-ui/react'
-import Link from 'next/link'
 
+import Link from '@/components/navigation/Link'
 import useView from '@/features/view/hooks/userView'
 
 export default function ViewList() {

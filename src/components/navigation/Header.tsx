@@ -1,6 +1,7 @@
 import { Flex, Heading, Spacer } from '@chakra-ui/react'
-import Link from 'next/link'
 import { GoMarkGithub } from 'react-icons/go'
+
+import Link from '@/components/navigation/Link'
 
 export default function Header() {
   return (

@@ -1,7 +1,7 @@
 import { Container, Flex } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 
-import Header from '@/components/Header'
+import Header from '@/components/navigation/Header'
 
 type PageLayoutProps = {
   children: ReactNode
