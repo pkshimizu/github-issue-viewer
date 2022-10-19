@@ -1,4 +1,4 @@
-import { Link as ChakraLink } from '@chakra-ui/react'
+import MuiLink from '@mui/material/Link'
 import NextLink from 'next/link'
 import { ReactNode } from 'react'
 
@@ -9,8 +9,8 @@ type LinkProps = {
 
 export default function Link({ href, children }: LinkProps) {
   return (
-    <ChakraLink as={NextLink} href={href}>
-      {children}
-    </ChakraLink>
+    <NextLink href={href}>
+      <MuiLink>{children}</MuiLink>
+    </NextLink>
   )
 }

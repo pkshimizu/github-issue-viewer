@@ -1,16 +1,9 @@
-import {
-  Alert,
-  AlertIcon,
-  Avatar,
-  Flex,
-  Input,
-  InputGroup,
-  InputRightAddon,
-} from '@chakra-ui/react'
+import { Alert, Avatar, TextField } from '@mui/material'
 import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 
 import Button from '@/components/form/Button'
+import { FlexColumn, FlexRow } from '@/components/layout/Flex'
 import useAccessToken from '@/features/settings/hooks/useAccessToken'
 import useAuthentication from '@/features/settings/hooks/useAuthentication'
 
@@ -31,28 +24,23 @@ export default function AccessTokenForm() {
     [save],
   )
   return (
-    <Flex direction={'column'} gap={1}>
+    <FlexColumn gap={1}>
       <form onSubmit={handleSubmit(handleSave)}>
-        <InputGroup>
-          <Input {...register('accessToken')} />
-          <InputRightAddon>
-            <Button type={'submit'}>保存</Button>
-          </InputRightAddon>
-        </InputGroup>
+        <TextField {...register('accessToken')} />
+        <Button type={'submit'}>保存</Button>
       </form>
       {authentication !== undefined && (
-        <Alert status={authentication === null ? 'error' : 'success'}>
-          <AlertIcon />
+        <Alert severity={authentication === null ? 'error' : 'success'}>
           {authentication === null ? (
             <>Unauthorized access token.</>
           ) : (
-            <Flex direction={'row'} gap={2} align={'center'}>
+            <FlexRow gap={2} align={'center'}>
               Accessed to {authentication.name}
-              <Avatar src={authentication.avatarUrl} size={'sm'} />
-            </Flex>
+              <Avatar src={authentication.avatarUrl} />
+            </FlexRow>
           )}
         </Alert>
       )}
-    </Flex>
+    </FlexColumn>
   )
 }

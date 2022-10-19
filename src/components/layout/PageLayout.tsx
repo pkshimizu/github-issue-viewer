@@ -1,6 +1,7 @@
-import { Container, Flex } from '@chakra-ui/react'
+import { Container } from '@mui/material'
 import { ReactNode } from 'react'
 
+import { FlexColumn } from '@/components/layout/Flex'
 import Header from '@/components/navigation/Header'
 
 type PageLayoutProps = {
@@ -9,11 +10,9 @@ type PageLayoutProps = {
 
 export default function PageLayout({ children }: PageLayoutProps) {
   return (
-    <Container p={2} maxW={'container.lg'}>
+    <Container sx={{ pa: 2 }}>
       <Header />
-      <Flex direction={'column'} py={2}>
-        {children}
-      </Flex>
+      <FlexColumn py={2}>{children}</FlexColumn>
     </Container>
   )
 }

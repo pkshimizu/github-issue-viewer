@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import MuiCard from '@mui/material/Card'
 import { ReactNode } from 'react'
 
 type CardProps = {
@@ -6,9 +6,5 @@ type CardProps = {
 }
 
 export default function Card({ children }: CardProps) {
-  return (
-    <Box p={4} rounded={'md'} boxShadow={'outline'}>
-      {children}
-    </Box>
-  )
+  return <MuiCard>{children}</MuiCard>
 }

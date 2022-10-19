@@ -1,4 +1,4 @@
-import { Button as ChakraButton } from '@chakra-ui/react'
+import MuiButton from '@mui/material/Button'
 import { ReactNode } from 'react'
 
 import { calcFormSizeToWidth, FormItemProps } from '@/components/form/FormBase'
@@ -10,8 +10,8 @@ type ButtonProps = {
 
 export default function Button({ type, size, children }: ButtonProps) {
   return (
-    <ChakraButton type={type} width={calcFormSizeToWidth(size)}>
+    <MuiButton type={type} sx={{ width: calcFormSizeToWidth(size) }}>
       {children}
-    </ChakraButton>
+    </MuiButton>
   )
 }

@@ -1,36 +1,36 @@
-import { Select } from '@chakra-ui/react'
+import MuiSelect from '@mui/material/Select'
 import { ReactNode } from 'react'
 import { Control, Controller, FieldPath, FieldValues } from 'react-hook-form'
 
 import { calcFormSizeToWidth, FormItemProps } from '@/components/form/FormBase'
 
-type FormSelectFieldProps<T extends FieldValues> = {
+type SelectProps<T extends FieldValues> = {
   name: FieldPath<T>
   control: Control<T>
   children: ReactNode
 } & FormItemProps
 
-export default function FormSelectField<T extends FieldValues>({
+export default function Select<T extends FieldValues>({
   name,
   size,
   control,
   children,
-}: FormSelectFieldProps<T>) {
+}: SelectProps<T>) {
   return (
     <Controller<T>
       name={name}
       control={control}
       render={({ field }) => (
-        <Select
-          width={calcFormSizeToWidth(size)}
-          maxW={calcFormSizeToWidth(size)}
-          minW={calcFormSizeToWidth(size)}
+        <MuiSelect
+          sx={{
+            width: calcFormSizeToWidth(size),
+          }}
           onChange={(e) => {
             field.onChange(e.target.value)
           }}
         >
           {children}
-        </Select>
+        </MuiSelect>
       )}
     />
   )

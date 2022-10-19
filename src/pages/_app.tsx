@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { ChakraProvider } from '@chakra-ui/react'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
@@ -13,11 +13,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
-        <ChakraProvider theme={theme}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
           <PageLayout>
             <Component {...pageProps} />
           </PageLayout>
-        </ChakraProvider>
+        </ThemeProvider>
       </PersistGate>
     </Provider>
   )

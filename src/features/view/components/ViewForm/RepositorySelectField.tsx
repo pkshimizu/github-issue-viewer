@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 
-import FormSelectField from '@/components/form/FormSelectField'
+import Select from '@/components/form/Select'
 import useRepository from '@/features/repository/hooks/useRepository'
 import { Repository } from '@/features/repository/types'
 import { ViewFormParams } from '@/features/view/components/ViewForm/index'
@@ -26,13 +26,13 @@ export default function RepositorySelectField({}: RepositorySelectFieldProps) {
     return () => subscription.unsubscribe()
   }, [watch, repositories])
   return (
-    <FormSelectField name={'repositoryName'} control={control} size={'sm'}>
+    <Select name={'repositoryName'} control={control} size={'sm'}>
       <option value={undefined}>-</option>
       {filteredRepositories.map((repository) => (
         <option key={repository.name} value={repository.name}>
           {repository.organization.name} / {repository.name}
         </option>
       ))}
-    </FormSelectField>
+    </Select>
   )
 }

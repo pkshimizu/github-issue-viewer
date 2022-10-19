@@ -1,8 +1,9 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Typography } from '@mui/material'
 import { useCallback } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 
 import Button from '@/components/form/Button'
+import { FlexColumn } from '@/components/layout/Flex'
 import OrganizationSelectField from '@/features/view/components/ViewForm/OrganizationSelectField'
 import RepositorySelectField from '@/features/view/components/ViewForm/RepositorySelectField'
 import { ViewActions } from '@/features/view/store'
@@ -25,15 +26,15 @@ export default function ViewForm() {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(handleSave)}>
-        <Flex direction={'column'} gap={2}>
-          <Text size={'sm'}>対象Organization</Text>
+        <FlexColumn gap={2}>
+          <Typography variant={'caption'}>対象Organization</Typography>
           <OrganizationSelectField />
-          <Text size={'sm'}>対象Repository</Text>
+          <Typography variant={'caption'}>対象Repository</Typography>
           <RepositorySelectField />
           <Button type={'submit'} size={'xs'}>
             保存
           </Button>
-        </Flex>
+        </FlexColumn>
       </form>
     </FormProvider>
   )
