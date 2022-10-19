@@ -10,7 +10,7 @@ export default function OrganizationSelectField({}: OrganizationSelectFieldProps
   const { organizations } = useRepository()
   const { control } = useFormContext<ViewFormParams>()
   return (
-    <FormSelectField name={'organizationName'} control={control} size={'xs'}>
+    <FormSelectField name={'organizationName'} control={control} size={'sm'}>
       <option value={undefined}>-</option>
       {organizations.map((organization) => (
         <option key={organization.name} value={organization.name}>

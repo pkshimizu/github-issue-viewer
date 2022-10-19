@@ -1,7 +1,8 @@
-import { Button, Flex, Text } from '@chakra-ui/react'
+import { Flex, Text } from '@chakra-ui/react'
 import { useCallback } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 
+import Button from '@/components/form/Button'
 import OrganizationSelectField from '@/features/view/components/ViewForm/OrganizationSelectField'
 import RepositorySelectField from '@/features/view/components/ViewForm/RepositorySelectField'
 import { ViewActions } from '@/features/view/store'
@@ -29,7 +30,9 @@ export default function ViewForm() {
           <OrganizationSelectField />
           <Text size={'sm'}>対象Repository</Text>
           <RepositorySelectField />
-          <Button type={'submit'}>保存</Button>
+          <Button type={'submit'} size={'xs'}>
+            保存
+          </Button>
         </Flex>
       </form>
     </FormProvider>

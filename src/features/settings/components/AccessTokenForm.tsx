@@ -2,7 +2,6 @@ import {
   Alert,
   AlertIcon,
   Avatar,
-  Button,
   Flex,
   Input,
   InputGroup,
@@ -11,6 +10,7 @@ import {
 import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 
+import Button from '@/components/form/Button'
 import useAccessToken from '@/features/settings/hooks/useAccessToken'
 import useAuthentication from '@/features/settings/hooks/useAuthentication'
 
