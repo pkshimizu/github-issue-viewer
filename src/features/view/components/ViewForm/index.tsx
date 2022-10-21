@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material'
 import { useCallback } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 
@@ -27,9 +26,7 @@ export default function ViewForm() {
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(handleSave)}>
         <FlexColumn gap={2}>
-          <Typography variant={'caption'}>対象Organization</Typography>
           <OrganizationSelectField />
-          <Typography variant={'caption'}>対象Repository</Typography>
           <RepositorySelectField />
           <Button type={'submit'} size={'xs'}>
             保存

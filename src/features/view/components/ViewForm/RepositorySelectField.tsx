@@ -5,6 +5,7 @@ import Select from '@/components/form/Select'
 import useRepository from '@/features/repository/hooks/useRepository'
 import { Repository } from '@/features/repository/types'
 import { ViewFormParams } from '@/features/view/components/ViewForm/index'
+import {MenuItem} from "@mui/material";
 
 type RepositorySelectFieldProps = {}
 
@@ -26,12 +27,12 @@ export default function RepositorySelectField({}: RepositorySelectFieldProps) {
     return () => subscription.unsubscribe()
   }, [watch, repositories])
   return (
-    <Select name={'repositoryName'} control={control} size={'sm'}>
-      <option value={undefined}>-</option>
+    <Select label={"Repository"} name={'repositoryName'} control={control} size={'md'}>
+      <MenuItem value={undefined}>-</MenuItem>
       {filteredRepositories.map((repository) => (
-        <option key={repository.name} value={repository.name}>
+        <MenuItem key={repository.name} value={repository.name}>
           {repository.organization.name} / {repository.name}
-        </option>
+        </MenuItem>
       ))}
     </Select>
   )

@@ -3,14 +3,17 @@ import { ReactNode } from 'react'
 import { Control, Controller, FieldPath, FieldValues } from 'react-hook-form'
 
 import { calcFormSizeToWidth, FormItemProps } from '@/components/form/FormBase'
+import {FormControl, InputLabel} from "@mui/material";
 
 type SelectProps<T extends FieldValues> = {
+  label?: string
   name: FieldPath<T>
   control: Control<T>
   children: ReactNode
 } & FormItemProps
 
 export default function Select<T extends FieldValues>({
+  label,
   name,
   size,
   control,
@@ -21,16 +24,19 @@ export default function Select<T extends FieldValues>({
       name={name}
       control={control}
       render={({ field }) => (
-        <MuiSelect
-          sx={{
-            width: calcFormSizeToWidth(size),
-          }}
-          onChange={(e) => {
-            field.onChange(e.target.value)
-          }}
-        >
-          {children}
-        </MuiSelect>
+        <FormControl size={"small"}>
+          <InputLabel>{label}</InputLabel>
+          <MuiSelect
+            sx={{
+              width: calcFormSizeToWidth(size),
+            }}
+            onChange={(e) => {
+              field.onChange(e.target.value)
+            }}
+          >
+            {children}
+          </MuiSelect>
+        </FormControl>
       )}
     />
   )
