@@ -1,6 +1,5 @@
-import Link from 'next/link'
-
 import { FlexColumn } from '@/components/layout/Flex'
+import Link from '@/components/navigation/Link'
 import ViewList from '@/features/view/components/ViewList'
 
 import type { NextPage } from 'next'

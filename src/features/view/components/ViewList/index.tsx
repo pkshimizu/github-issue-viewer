@@ -6,12 +6,12 @@ import useView from '@/features/view/hooks/userView'
 export default function ViewList() {
   const { list } = useView()
   return (
-    <FlexColumn>
-      <List>
+    <FlexColumn width={320}>
+      <List disablePadding>
         {list.map((view) => (
-          <ListItem key={view.uid}>
+          <ListItem key={view.uid} disableGutters disablePadding>
             <ListItemButton href={`#${view.uid}`}>
-              <ListItemText primary={view.organizationName} secondary={view.repositoryName} />
+              <ListItemText primary={view.repositoryName} secondary={view.organizationName} />
             </ListItemButton>
           </ListItem>
         ))}

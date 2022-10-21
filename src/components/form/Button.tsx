@@ -10,7 +10,7 @@ type ButtonProps = {
 
 export default function Button({ type, size, children }: ButtonProps) {
   return (
-    <MuiButton type={type} sx={{ width: calcFormSizeToWidth(size) }}>
+    <MuiButton type={type} sx={{ width: calcFormSizeToWidth(size) }} variant={'contained'}>
       {children}
     </MuiButton>
   )

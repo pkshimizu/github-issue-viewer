@@ -1,8 +1,9 @@
-import { Alert, Avatar, TextField } from '@mui/material'
+import { Alert, Avatar } from '@mui/material'
 import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 
 import Button from '@/components/form/Button'
+import TextField from '@/components/form/TextField'
 import { FlexColumn, FlexRow } from '@/components/layout/Flex'
 import useAccessToken from '@/features/settings/hooks/useAccessToken'
 import useAuthentication from '@/features/settings/hooks/useAuthentication'
@@ -26,8 +27,10 @@ export default function AccessTokenForm() {
   return (
     <FlexColumn gap={1}>
       <form onSubmit={handleSubmit(handleSave)}>
-        <TextField {...register('accessToken')} />
-        <Button type={'submit'}>保存</Button>
+        <FlexRow align={'center'} pt={1}>
+          <TextField label={'Access Token'} register={register('accessToken')} size={'lg'} />
+          <Button type={'submit'}>保存</Button>
+        </FlexRow>
       </form>
       {authentication !== undefined && (
         <Alert severity={authentication === null ? 'error' : 'success'}>

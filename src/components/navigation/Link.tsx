@@ -9,8 +9,8 @@ type LinkProps = {
 
 export default function Link({ href, children }: LinkProps) {
   return (
-    <NextLink href={href}>
-      <MuiLink>{children}</MuiLink>
-    </NextLink>
+    <MuiLink sx={{ textDecoration: 'none' }} color={'inherit'}>
+      <NextLink href={href}>{children}</NextLink>
+    </MuiLink>
   )
 }
