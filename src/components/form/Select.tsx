@@ -1,9 +1,9 @@
+import { FormControl, InputLabel } from '@mui/material'
 import MuiSelect from '@mui/material/Select'
 import { ReactNode } from 'react'
 import { Control, Controller, FieldPath, FieldValues } from 'react-hook-form'
 
 import { calcFormSizeToWidth, FormItemProps } from '@/components/form/FormBase'
-import {FormControl, InputLabel} from "@mui/material";
 
 type SelectProps<T extends FieldValues> = {
   label?: string
@@ -24,7 +24,7 @@ export default function Select<T extends FieldValues>({
       name={name}
       control={control}
       render={({ field }) => (
-        <FormControl size={"small"}>
+        <FormControl size={'small'}>
           <InputLabel>{label}</InputLabel>
           <MuiSelect
             sx={{

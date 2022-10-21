@@ -1,3 +1,4 @@
+import { MenuItem } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 
@@ -5,7 +6,6 @@ import Select from '@/components/form/Select'
 import useRepository from '@/features/repository/hooks/useRepository'
 import { Repository } from '@/features/repository/types'
 import { ViewFormParams } from '@/features/view/components/ViewForm/index'
-import {MenuItem} from "@mui/material";
 
 type RepositorySelectFieldProps = {}
 
@@ -27,7 +27,7 @@ export default function RepositorySelectField({}: RepositorySelectFieldProps) {
     return () => subscription.unsubscribe()
   }, [watch, repositories])
   return (
-    <Select label={"Repository"} name={'repositoryName'} control={control} size={'md'}>
+    <Select label={'Repository'} name={'repositoryName'} control={control} size={'md'}>
       <MenuItem value={undefined}>-</MenuItem>
       {filteredRepositories.map((repository) => (
         <MenuItem key={repository.name} value={repository.name}>
