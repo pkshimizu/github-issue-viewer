@@ -6,15 +6,25 @@ import { FlexColumn } from '@/components/layout/Flex'
 import OrganizationSelectField from '@/features/view/components/ViewForm/OrganizationSelectField'
 import RepositorySelectField from '@/features/view/components/ViewForm/RepositorySelectField'
 import { ViewActions } from '@/features/view/store'
+import { ViewSettings } from '@/features/view/types'
 import { useAppDispatch } from '@/hooks/useStore'
+
+export type ViewFormProps = {
+  view?: ViewSettings
+}
 
 export type ViewFormParams = {
   organizationName: string
   repositoryName: string
 }
 
-export default function ViewForm() {
-  const methods = useForm<ViewFormParams>()
+export default function ViewForm({ view }: ViewFormProps) {
+  const methods = useForm<ViewFormParams>({
+    defaultValues: {
+      organizationName: view?.organizationName,
+      repositoryName: view?.repositoryName,
+    },
+  })
   const dispatch = useAppDispatch()
   const handleSave = useCallback(
     (params: ViewFormParams) => {

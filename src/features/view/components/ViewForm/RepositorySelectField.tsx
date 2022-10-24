@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 
 import Select from '@/components/form/Select'
+import { FlexRow } from '@/components/layout/Flex'
 import useRepository from '@/features/repository/hooks/useRepository'
 import { Repository } from '@/features/repository/types'
 import { ViewFormParams } from '@/features/view/components/ViewForm/index'
@@ -27,13 +28,15 @@ export default function RepositorySelectField({}: RepositorySelectFieldProps) {
     return () => subscription.unsubscribe()
   }, [watch, repositories])
   return (
-    <Select label={'Repository'} name={'repositoryName'} control={control} size={'md'}>
-      <MenuItem value={undefined}>-</MenuItem>
-      {filteredRepositories.map((repository) => (
-        <MenuItem key={repository.name} value={repository.name}>
-          {repository.organization.name} / {repository.name}
-        </MenuItem>
-      ))}
-    </Select>
+    <FlexRow pt={1}>
+      <Select label={'Repository'} name={'repositoryName'} control={control} size={'md'}>
+        <MenuItem value={undefined}>-</MenuItem>
+        {filteredRepositories.map((repository) => (
+          <MenuItem key={repository.name} value={repository.name}>
+            {repository.organization.name} / {repository.name}
+          </MenuItem>
+        ))}
+      </Select>
+    </FlexRow>
   )
 }

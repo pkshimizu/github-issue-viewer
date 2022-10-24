@@ -27,6 +27,7 @@ export default function Select<T extends FieldValues>({
         <FormControl size={'small'}>
           <InputLabel>{label}</InputLabel>
           <MuiSelect
+            {...field}
             sx={{
               width: calcFormSizeToWidth(size),
             }}
