@@ -5,7 +5,6 @@ import useView from '@/features/view/hooks/userView'
 
 import type { NextPage } from 'next'
 
-
 const View: NextPage = () => {
   const { list } = useView()
   const router = useRouter()

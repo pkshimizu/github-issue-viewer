@@ -10,6 +10,12 @@ import { ViewSettings } from '@/features/view/types'
 export default function ViewList() {
   const { list } = useView()
   const router = useRouter()
+  const handleClickView = useCallback(
+    (view: ViewSettings) => {
+      router.push({ pathname: `/`, query: { view: view.uid } })
+    },
+    [router],
+  )
   const handleClickSettings = useCallback(
     (view: ViewSettings) => {
       router.push(`/views/${view.uid}`)
@@ -30,7 +36,7 @@ export default function ViewList() {
               </IconButton>
             }
           >
-            <ListItemButton href={`#${view.uid}`}>
+            <ListItemButton onClick={() => handleClickView(view)}>
               <ListItemText primary={view.repositoryName} secondary={view.organizationName} />
             </ListItemButton>
           </ListItem>
