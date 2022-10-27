@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import Chip from '@/components/display/Chip'
 import { FlexColumn } from '@/components/layout/Flex'
 import Card from '@/components/surface/Card'
 import useLabel from '@/features/repository/hooks/useLabel'
@@ -18,7 +19,9 @@ export default function LabelAggregationView({ view }: LabelAggregationViewProps
   return (
     <FlexColumn>
       {labels.map((label) => (
-        <Card key={label.id}>{label.name}</Card>
+        <Card key={label.id}>
+          <Chip label={label.name} colorCode={`#${label.color}`} />
+        </Card>
       ))}
     </FlexColumn>
   )

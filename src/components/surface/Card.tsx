@@ -1,3 +1,4 @@
+import { CardContent } from '@mui/material'
 import MuiCard from '@mui/material/Card'
 import { ReactNode } from 'react'
 
@@ -6,5 +7,9 @@ type CardProps = {
 }
 
 export default function Card({ children }: CardProps) {
-  return <MuiCard>{children}</MuiCard>
+  return (
+    <MuiCard sx={{ mx: 1 }}>
+      <CardContent>{children}</CardContent>
+    </MuiCard>
+  )
 }
