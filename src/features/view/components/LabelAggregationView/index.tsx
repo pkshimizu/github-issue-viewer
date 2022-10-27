@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import Chip from '@/components/display/Chip'
 import { FlexColumn } from '@/components/layout/Flex'
 import Card from '@/components/surface/Card'
+import useIssue from '@/features/issue/hooks/useIssue'
 import useLabel from '@/features/repository/hooks/useLabel'
 import { ViewSettings } from '@/features/view/types'
 
@@ -12,9 +13,11 @@ type LabelAggregationViewProps = {
 
 export default function LabelAggregationView({ view }: LabelAggregationViewProps) {
   const { load, labels } = useLabel(view.organizationName, view.repositoryName)
+  const { load: loadIssues } = useIssue(view.organizationName, view.repositoryName)
   useEffect(() => {
     load()
-  }, [view, load])
+    loadIssues()
+  }, [view, load, loadIssues])
 
   return (
     <FlexColumn>
