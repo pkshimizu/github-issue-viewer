@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
+import { getIssues } from '@/features/issue/apis'
 import { Issue } from '@/features/issue/types'
 
 type IssueState = {
@@ -18,10 +19,15 @@ export const IssueActions = {
   loadIssues: createAsyncThunk(
     'issue/loadIssues',
     async (params: { organizationName: string; repositoryName: string; accessToken: string }) => {
+      const issues = await getIssues(
+        params.organizationName,
+        params.repositoryName,
+        params.accessToken,
+      )
       return {
         organizationName: params.organizationName,
         repositoryName: params.repositoryName,
-        issues: [],
+        issues,
       }
     },
   ),

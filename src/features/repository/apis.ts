@@ -36,7 +36,7 @@ export async function getLabels(
 
   let page = 1
   while (page !== 0) {
-    const response = await octokit.request('GET /repos/{owner}/{repo}/labels', {
+    const response = await octokit.rest.issues.listLabelsForRepo({
       owner,
       repo,
       per_page: 100,

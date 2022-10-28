@@ -13,3 +13,10 @@ export type Label = {
   description: string | null
   color: string
 }
+
+export type User = {
+  userId: string
+  name: string | null
+  avatarUrl: string
+  profileUrl: string
+}

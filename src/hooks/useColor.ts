@@ -11,7 +11,6 @@ function textColor(color?: string): 'white' | 'black' | undefined {
   const red = parseInt(color.substring(1, 3), 16)
   const green = parseInt(color.substring(3, 5), 16)
   const blue = parseInt(color.substring(5, 7), 16)
-  console.log(red, green, blue)
 
   // sRGB を RGB に変換し、背景色の相対輝度を求める
   const toRgbItem = (item: number) => {
