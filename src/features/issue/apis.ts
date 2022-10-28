@@ -38,6 +38,7 @@ export async function getIssues(
       repo: repositoryName,
       per_page: 100,
       page,
+      state: 'all',
     })
     const results = response.data
     issues.push(
